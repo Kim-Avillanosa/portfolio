@@ -1,13 +1,13 @@
 import Script from 'next/script';
 
 function Facebook() {
-    return (
-        <div>
-            <div id="fb-root"></div>
+  return (
+    <div>
+      <div id="fb-root"></div>
 
-            <div id="fb-customer-chat" className="fb-customerchat"></div>
-            <Script strategy="lazyOnload">
-                {`
+      <div id="fb-customer-chat" className="fb-customerchat"></div>
+      <Script id="script" strategy="lazyOnload">
+        {`
             var chatbox = document.getElementById('fb-customer-chat');
             chatbox.setAttribute("page_id", "kmavillanosa999");
             chatbox.setAttribute("attribution", "biz_inbox");
@@ -27,9 +27,9 @@ function Facebook() {
               fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         `}
-            </Script>
-        </div>
-    );
+      </Script>
+    </div>
+  );
 }
 
 export default Facebook;

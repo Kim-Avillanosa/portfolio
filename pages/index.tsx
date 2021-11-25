@@ -51,7 +51,7 @@ const Home: NextPage = () => {
         <div className={styles.grid}>
           <a
             href="https://kim-avillanosa.gitbook.io/portfolio"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             className={styles.card}
           >
             <span className={styles.logo}>
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
           </a>
           <a
             href="https://www.linkedin.com/in/kmavillanosa"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             className={styles.card}
           >
             <span className={styles.logo}>
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
           </a>
           <a
             href="https://web.facebook.com/kmavillanosa999"
-            target="_blank"
+            target="_blank" rel="noreferrer"
             className={styles.card}
           >
             <span className={styles.logo}>
