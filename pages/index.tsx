@@ -12,8 +12,19 @@ import "react-typist/dist/Typist.css"
 
 const year = new Date().getFullYear();
 
+const getAge = (dateString: string) => {
+  var today = new Date();
+  var birthDate = new Date(dateString);
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 const items = [{
-  message: <small>See my background</small>,
+  message: <small>More about my professional background</small>,
   url: "https://kim-avillanosa.gitbook.io/portfolio",
   title: "Portfolio",
   logo: "/portfolio_link.png"
@@ -34,7 +45,6 @@ const items = [{
 
 
 const Home: NextPage = () => {
-
   return (
     <div className={styles.container}>
       <Head>
@@ -51,8 +61,6 @@ const Home: NextPage = () => {
 
 
       <main className={styles.main}>
-
-
         <Image className={styles.avatar}
           src="/me.jpg"
           alt="img"
@@ -61,33 +69,37 @@ const Home: NextPage = () => {
         />
 
         <h5 className={styles.title}>
-
-          <Typist cursor={{
-            show: true,
-            blink: true,
-            element: '|',
-            hideWhenDone: true,
-            hideWhenDoneDelay: 400,
-          }} >
-            Kim Cyriel S. Avillanosa
-          </Typist>
-
-          <p className={styles.description}>
+          <p>
             <Typist cursor={{
               show: true,
               blink: true,
               element: '|',
-              hideWhenDone: false,
+              hideWhenDone: true,
+              hideWhenDoneDelay: 1000,
+            }} >
+              <span>Hi, </span>
+              <Typist.Delay ms={500} />
+              <span>I'm Kim.</span>
+            </Typist></p>
+
+
+          <small className={styles.description}>
+            <Typist cursor={{
+              show: true,
+              blink: true,
+              element: '|',
+              hideWhenDone: true,
               hideWhenDoneDelay: 400,
             }} >
-              <Typist.Delay ms={2000} />
-              <span >Software </span>
-
-              <Typist.Delay ms={500} />
-              <span>Engineer</span>
+              <span>
+                Software Developer from Palawan, Philippines.
+              </span>
             </Typist>
-          </p>
+          </small>
+
         </h5>
+
+
 
         <div className={styles.grid}>
           {items.map((item, idx) => {
@@ -104,21 +116,38 @@ const Home: NextPage = () => {
                   height={40}
                 />
               </span>
+
               <h2>{item.title}</h2>
-              {item.message}
+              <Typist cursor={{
+                show: true,
+                blink: true,
+                element: '|',
+                hideWhenDone: true,
+                hideWhenDoneDelay: 400,
+              }} >
+                {item.message}
+              </Typist>
+
             </a>
           })}
+        </div>
+
+
+
+        <div className={styles.about}>
+          <h1>About me</h1>
+          <p>I am a Software Engineer with over {getAge("2016")} years experience working for E-commerce and Fincancial Services industry.</p>
+          <p>You can send me an email at <strong>kmavillanosa@gmail.com</strong></p>
         </div>
 
         <div className={styles.qrbox}>
           <Image
             src="/qr.png"
             alt="scan me"
-            width={60}
-            height={60}
+            width={100}
+            height={100}
           />
         </div>
-
       </main>
 
       <footer className={styles.footer}>

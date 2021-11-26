@@ -1,8 +1,14 @@
 [build]
     base = ".next/"
     command = "npm run build && npm run export"
-    publish = ""
+    publish = "/"
 
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
