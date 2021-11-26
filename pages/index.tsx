@@ -7,8 +7,7 @@ import styles from "../styles/Home.module.css";
 
 import Typist from "react-typist";
 
-import "react-typist/dist/Typist.css"
-
+import "react-typist/dist/Typist.css";
 
 const year = new Date().getFullYear();
 
@@ -21,28 +20,42 @@ const getAge = (dateString: string) => {
     age--;
   }
   return age;
-}
+};
 
-const items = [{
-  message: <small>More about my professional background</small>,
-  url: "https://kim-avillanosa.gitbook.io/portfolio",
-  title: "Portfolio",
-  logo: "/portfolio_link.png"
-},
-{
-  message: <small>Connect with me via <span><strong>Linkedin</strong></span></small>,
-  url: "https://www.linkedin.com/in/kmavillanosa",
-  title: "Linkedin",
-  logo: "/linkedin.png"
-}
-  , {
-  message: <small>Follow me on <span><strong>Github</strong></span></small>,
-  url: "https://github.com/kmavillanosa",
-  title: "Github",
-  logo: "/github.png"
-}]
-
-
+const items = [
+  {
+    message: <small>More about my professional background</small>,
+    url: "https://kim-avillanosa.gitbook.io/portfolio",
+    title: "Portfolio",
+    logo: "/portfolio_link.png",
+  },
+  {
+    message: (
+      <small>
+        Connect with me via{" "}
+        <span>
+          <strong>Linkedin</strong>
+        </span>
+      </small>
+    ),
+    url: "https://www.linkedin.com/in/kmavillanosa",
+    title: "Linkedin",
+    logo: "/linkedin.png",
+  },
+  {
+    message: (
+      <small>
+        Follow me on{" "}
+        <span>
+          <strong>Github</strong>
+        </span>
+      </small>
+    ),
+    url: "https://github.com/kmavillanosa",
+    title: "Github",
+    logo: "/github.png",
+  },
+];
 
 const Home: NextPage = () => {
   return (
@@ -59,9 +72,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       <main className={styles.main}>
-        <Image className={styles.avatar}
+        <Image
+          className={styles.avatar}
           src="/me.jpg"
           alt="img"
           width={200}
@@ -70,83 +83,85 @@ const Home: NextPage = () => {
 
         <h5 className={styles.title}>
           <p>
-            <Typist cursor={{
-              show: true,
-              blink: true,
-              element: '|',
-              hideWhenDone: true,
-              hideWhenDoneDelay: 1000,
-            }} >
+            <Typist
+              cursor={{
+                show: true,
+                blink: true,
+                element: "|",
+                hideWhenDone: true,
+                hideWhenDoneDelay: 1000,
+              }}
+            >
               <span>Hi, </span>
               <Typist.Delay ms={500} />
-              <span>I'm Kim.</span>
-            </Typist></p>
-
+              <span>{"I'm  Kim."}</span>
+            </Typist>
+          </p>
 
           <small className={styles.description}>
-            <Typist cursor={{
-              show: true,
-              blink: true,
-              element: '|',
-              hideWhenDone: true,
-              hideWhenDoneDelay: 400,
-            }} >
-              <span>
-                Software Developer from Palawan, Philippines.
-              </span>
+            <Typist
+              cursor={{
+                show: true,
+                blink: true,
+                element: "|",
+                hideWhenDone: true,
+                hideWhenDoneDelay: 400,
+              }}
+            >
+              <span>Software Developer from Palawan, Philippines.</span>
             </Typist>
           </small>
-
         </h5>
-
-
 
         <div className={styles.grid}>
           {items.map((item, idx) => {
-            return <a
-              href={item.url}
-              target="_blank" rel="noreferrer"
-              className={styles.card}
-            >
-              <span className={styles.logo}>
-                <Image
-                  src={item.logo}
-                  alt={item.title}
-                  width={40}
-                  height={40}
-                />
-              </span>
+            return (
+              <a
+                key={idx}
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.card}
+              >
+                <span className={styles.logo}>
+                  <Image
+                    src={item.logo}
+                    alt={item.title}
+                    width={40}
+                    height={40}
+                  />
+                </span>
 
-              <h2>{item.title}</h2>
-              <Typist cursor={{
-                show: true,
-                blink: true,
-                element: '|',
-                hideWhenDone: true,
-                hideWhenDoneDelay: 400,
-              }} >
-                {item.message}
-              </Typist>
-
-            </a>
+                <h2>{item.title}</h2>
+                <Typist
+                  cursor={{
+                    show: true,
+                    blink: true,
+                    element: "|",
+                    hideWhenDone: true,
+                    hideWhenDoneDelay: 400,
+                  }}
+                >
+                  {item.message}
+                </Typist>
+              </a>
+            );
           })}
         </div>
 
-
-
         <div className={styles.about}>
           <h1>About me</h1>
-          <p>I am a Software Engineer with over {getAge("2016")} years experience working for E-commerce and Fincancial Services industry.</p>
-          <p>You can send me an email at <strong>kmavillanosa@gmail.com</strong></p>
+          <p>
+            I am a Software Engineer with over {getAge("2016")} years experience
+            working for E-commerce and Fincancial Services industry.
+          </p>
+          <p>
+            You can send me an email at <strong>kmavillanosa@gmail.com</strong>
+          </p>
         </div>
 
         <div className={styles.qrbox}>
-          <Image
-            src="/qr.png"
-            alt="scan me"
-            width={100}
-            height={100}
-          />
+          <Image src="/qr.png" alt="scan me" width={100} height={100} />
         </div>
       </main>
 
@@ -154,7 +169,6 @@ const Home: NextPage = () => {
         <div>
           <small>Copyright © Kim Cyriel S. Avillanosa {year}</small>
         </div>
-
       </footer>
 
       <Facebook />
