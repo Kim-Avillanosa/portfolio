@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import Facebook from "../components/Facebook";
 import styles from "../styles/Home.module.css";
@@ -73,7 +72,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Image
+        <img
           className={styles.avatar}
           src="/me.jpg"
           alt="img"
@@ -108,7 +107,7 @@ const Home: NextPage = () => {
                 hideWhenDoneDelay: 400,
               }}
             >
-              <span>Software Developer from Palawan, Philippines.</span>
+              <span>Software Engineer from Palawan, Philippines.</span>
             </Typist>
           </small>
         </h5>
@@ -124,7 +123,7 @@ const Home: NextPage = () => {
                 className={styles.card}
               >
                 <span className={styles.logo}>
-                  <Image
+                  <img
                     src={item.logo}
                     alt={item.title}
                     width={40}
@@ -153,7 +152,7 @@ const Home: NextPage = () => {
           <h1>About me</h1>
           <p>
             I am a Software Engineer with over {getAge("2016")} years experience
-            working for E-commerce and Fincancial Services industry.
+            working for E-commerce and Financial Services industry.
           </p>
           <p>
             You can send me an email at <strong>kmavillanosa@gmail.com</strong>
@@ -161,7 +160,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.qrbox}>
-          <Image src="/qr.png" alt="scan me" width={100} height={100} />
+          <img src="/qr.png" alt="scan me" width={100} height={100} />
         </div>
       </main>
 
