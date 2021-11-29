@@ -1,15 +1,28 @@
 import Script from 'next/script';
+import { useEffect } from 'react';
 
-function Facebook() {
+//102700588919929
+interface FacebookProps {
+  id: number
+}
+
+
+const Facebook: React.FC<FacebookProps> = ({ id }) => {
+
+  useEffect(() => {
+
+  }, [])
+
+
   return (
     <div>
       <div id="fb-root"></div>
 
-      <div id="fb-customer-chat" className="fb-customerchat"></div>
+      <div id="fb-customer-chat" className="fb-customerchat" ></div>
       <Script id="script" strategy="lazyOnload">
         {`
            var chatbox = document.getElementById('fb-customer-chat');
-           chatbox.setAttribute("page_id", "102700588919929");
+           chatbox.setAttribute("page_id", ${id});
            chatbox.setAttribute("attribution", "biz_inbox");
      
            window.fbAsyncInit = function() {

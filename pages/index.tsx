@@ -23,12 +23,28 @@ const getAge = (dateString: string) => {
 
 const items = [
   {
+    disabled: false,
     message: <small>More about my professional background</small>,
     url: "https://kim-avillanosa.gitbook.io/portfolio",
     title: "Portfolio",
     logo: "/portfolio_link.png",
   },
   {
+    disabled: true,
+    message: (
+      <small>
+        Download my
+        <span>
+          <strong> Resume</strong>
+        </span>
+      </small>
+    ),
+    url: "https://connectivitycheck.gstatic.com/",
+    title: "Download Resume",
+    logo: "/download.png",
+  },
+  {
+    disabled: false,
     message: (
       <small>
         Connect with me via{" "}
@@ -42,6 +58,7 @@ const items = [
     logo: "/linkedin.png",
   },
   {
+    disabled: false,
     message: (
       <small>
         Follow me on{" "}
@@ -54,6 +71,7 @@ const items = [
     title: "Github",
     logo: "/github.png",
   },
+
 ];
 
 const Home: NextPage = () => {
@@ -107,7 +125,9 @@ const Home: NextPage = () => {
                 hideWhenDoneDelay: 400,
               }}
             >
-              <span>Software Engineer from Palawan, Philippines.</span>
+              <span>Software Engineer from Palawan, </span>
+              <Typist.Delay ms={500} />
+              <span>Philippines.</span>
             </Typist>
           </small>
         </h5>
@@ -122,27 +142,19 @@ const Home: NextPage = () => {
                 rel="noreferrer"
                 className={styles.card}
               >
-                <span className={styles.logo}>
-                  <img
-                    src={item.logo}
-                    alt={item.title}
-                    width={40}
-                    height={40}
-                  />
-                </span>
+                <div className={item.disabled === true ? styles.error : undefined}>
+                  <span className={styles.logo}>
+                    <img
+                      src={item.logo}
+                      alt={item.title}
+                      width={40}
+                      height={40}
+                    />
+                  </span>
 
-                <h2>{item.title}</h2>
-                <Typist
-                  cursor={{
-                    show: true,
-                    blink: true,
-                    element: "|",
-                    hideWhenDone: true,
-                    hideWhenDoneDelay: 400,
-                  }}
-                >
-                  {item.message}
-                </Typist>
+                  <h2>{item.title}</h2>
+                  {item.disabled === true ? "Soon" : item.message}
+                </div>
               </a>
             );
           })}
@@ -170,7 +182,7 @@ const Home: NextPage = () => {
         </div>
       </footer>
 
-      <Facebook />
+      <Facebook id={102700588919929} />
     </div>
   );
 };
