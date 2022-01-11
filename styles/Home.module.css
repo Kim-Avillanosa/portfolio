@@ -5,6 +5,19 @@
   background-size: cover;
 }
 
+.slideContainer {
+  /* color: whitesmoke; */
+  max-width: 300px;
+}
+
+.slide {
+  border-radius: 20px;
+}
+.slide img {
+  max-width: 500px;
+  padding: 30px;
+}
+
 .main {
   color: #212121;
   min-height: 100vh;
@@ -28,7 +41,7 @@
 }
 
 .qrbox {
-  margin: 10px;
+  margin: 20px;
 }
 
 .qrbox:hover,
