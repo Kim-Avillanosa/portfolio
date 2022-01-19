@@ -1,5 +1,7 @@
+import Link from "next/link";
+import { Button } from "react-bootstrap";
 import Typist from "react-typist";
-import styles from "../styles/Home.module.css";
+import styles from "../../../../styles/Home.module.css";
 
 const Heading = () => {
   return (
@@ -32,6 +34,11 @@ const Heading = () => {
           <span>Software Engineer from Palawan, Philippines.</span>
         </small>
       </h5>
+      <Link href={`/contact`}>
+        <Button className="mb-5" variant="dark" size="lg">
+          Send me an email
+        </Button>
+      </Link>
     </>
   );
 };

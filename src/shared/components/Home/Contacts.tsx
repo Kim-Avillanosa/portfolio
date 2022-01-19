@@ -1,10 +1,9 @@
-import styles from "../styles/Home.module.css";
-
+import styles from "../../../../styles/Home.module.css";
 const items = [
   {
     name: ".background",
     disabled: false,
-    message: <small>More about my professional background</small>,
+    message: <small>More about me</small>,
     url: "https://kim-avillanosa.gitbook.io/portfolio",
     title: "Portfolio",
     logo: "/portfolio_link.png",
@@ -58,36 +57,38 @@ const items = [
 
 const Contacts = () => {
   return (
-    <div className={styles.grid}>
-      {items.map((item, idx) => {
-        return (
-          <a
-            key={idx}
-            href={item.url}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.card}
-          >
-            <div className={item.name}>
-              <div
-                className={item.disabled === true ? styles.error : undefined}
-              >
-                <span className={styles.logo}>
-                  <img
-                    src={item.logo}
-                    alt={item.title}
-                    width={40}
-                    height={40}
-                  />
-                </span>
+    <div className="mb-5">
+      <div className={styles.grid}>
+        {items.map((item, idx) => {
+          return (
+            <a
+              key={idx}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.card}
+            >
+              <div className={item.name}>
+                <div
+                  className={item.disabled === true ? styles.error : undefined}
+                >
+                  <span className={styles.logo}>
+                    <img
+                      src={item.logo}
+                      alt={item.title}
+                      width={40}
+                      height={40}
+                    />
+                  </span>
 
-                <h2>{item.title}</h2>
-                {item.disabled === true ? "Soon" : item.message}
+                  <h2>{item.title}</h2>
+                  {item.disabled === true ? "Soon" : item.message}
+                </div>
               </div>
-            </div>
-          </a>
-        );
-      })}
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 };
