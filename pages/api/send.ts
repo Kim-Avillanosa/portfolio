@@ -2,12 +2,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const sgMail = require("@sendgrid/mail");
 
-//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
 //
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-  sgMail.setApiKey(
-    "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"
-  );
+  sgMail.setApiKey("");
 
   const { email, message, company } = req.body;
 
